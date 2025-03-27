@@ -39,3 +39,18 @@ exports.getVideos = async (req, res) => {
   const videos = await Video.find(filters);
   res.json(videos);
 };
+
+exports.getVideoById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const video = await Video.findById(id);
+
+    if (!video) {
+      return res.status(404).json({ message: 'Video not found' });
+    }
+
+    res.json(video);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
