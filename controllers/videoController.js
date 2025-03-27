@@ -3,7 +3,7 @@ const Video = require('../models/Video');
 
 exports.uploadVideo = async (req, res) => {
   try {
-    const { title, description, tags, fileSize, fileUrl } = req.body;
+    const { title, description, tags, fileUrl } = req.body;
 
     // If req.file exists, use the uploaded file path; otherwise, use fileUrl from body
     let finalFileUrl = fileUrl; 
@@ -19,7 +19,6 @@ exports.uploadVideo = async (req, res) => {
       title,
       description,
       tags,
-      fileSize,
       fileUrl: finalFileUrl,
       uploadedBy: req.user.userId
     });

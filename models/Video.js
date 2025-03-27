@@ -5,7 +5,6 @@ const VideoSchema = new mongoose.Schema({
     description: String,
     tags: [String],
     fileUrl: String,
-    fileSize: Number,
     uploadedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     createdAt: { type: Date, default: Date.now },
   });
